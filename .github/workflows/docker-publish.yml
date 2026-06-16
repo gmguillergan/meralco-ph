@@ -11,8 +11,24 @@ env:
   OWNER: ${{ github.repository_owner }}
 
 jobs:
+  verify-version:
+    name: Verify version consistency
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check version references match the release tag
+        run: python3 scripts/check_versions.py "${GITHUB_REF_NAME}"
+
   build-standalone:
     name: Build standalone (multi-arch)
+    needs: verify-version
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -59,6 +75,7 @@ jobs:
 
   build-addon:
     name: Build add-on (multi-arch)
+    needs: verify-version
     runs-on: ubuntu-latest
     permissions:
       contents: read

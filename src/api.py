@@ -15,6 +15,7 @@ from flask import Flask, jsonify
 from flask.json.provider import DefaultJSONProvider
 from flask.typing import ResponseReturnValue
 
+from . import __version__
 from .parser import MeralcoRatesMeta, MeralcoRatesResult, RateEntry, get_meralco_rates
 
 logging.basicConfig(
@@ -169,7 +170,7 @@ def index() -> ResponseReturnValue:
     return jsonify(
         {
             "service": "MERALCO API",
-            "version": "2.0.2",
+            "version": __version__,
             "endpoints": {
                 "/rates": "Get all consumption-level rates",
                 "/rates/typical": "Get typical household (200 kWh) rate",

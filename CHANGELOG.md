@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.4] - 2026-06-16
+
+### Fixed
+
+- Add-on `config.yaml` version now matches the published image, so Home Assistant installs and updates correctly. The 2.0.3 add-on image shipped with a stale version and could fail to install.
+
 ## [2.0.3] - 2026-06-10
 
 ### Changed

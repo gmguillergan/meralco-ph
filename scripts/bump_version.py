@@ -1,6 +1,11 @@
 #!/usr/bin/env python3
 """
-Bump version in src/__init__.py and src/api.py.
+Bump the project version.
+
+The version lives in src/__init__.py (__version__), which is the single source of
+truth. config.yaml (Home Assistant add-on) must carry the same literal version, so
+this script updates both. src/api.py derives its version from __version__ at runtime.
+
 Usage:
   python scripts/bump_version.py 1.2.0     # set exact version
   python scripts/bump_version.py major     # 1.1.2 -> 2.0.0
@@ -39,9 +44,9 @@ def bump_part(current: str, part: str) -> str:
 
 def apply_version(version: str) -> None:
     init_py = ROOT / "src" / "__init__.py"
-    api_py = ROOT / "src" / "api.py"
+    config_yaml = ROOT / "config.yaml"
 
-    for path in (init_py, api_py):
+    for path in (init_py, config_yaml):
         if not path.exists():
             sys.exit(f"Missing: {path}")
 
@@ -50,13 +55,13 @@ def apply_version(version: str) -> None:
     init_py.write_text(text)
     print(f"Updated {init_py.relative_to(ROOT)}")
 
-    text = api_py.read_text()
-    text = re.sub(r'"version":\s*"[^"]*"', f'"version": "{version}"', text)
-    api_py.write_text(text)
-    print(f"Updated {api_py.relative_to(ROOT)}")
+    text = config_yaml.read_text()
+    text = re.sub(r'^version:\s*"[^"]*"', f'version: "{version}"', text, flags=re.M)
+    config_yaml.write_text(text)
+    print(f"Updated {config_yaml.relative_to(ROOT)}")
 
     print(f"Version set to {version}")
-    print("Don't forget to update CHANGELOG.md")
+    print("Don't forget to update CHANGELOG.md, then run scripts/check_versions.py")
 
 
 if __name__ == "__main__":
