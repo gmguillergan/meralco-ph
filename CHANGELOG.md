@@ -124,8 +124,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Added project signature
 - Removed redundant sentence about MERALCO
 
-[2.0.0]: https://github.com/rairulyle/meralco-ph/compare/3ca1a31...HEAD
-[1.1.2]: https://github.com/rairulyle/meralco-ph/compare/76aa0f2da563d8a6b8e162297583305fad153a93...3ca1a31
-[1.1.1]: https://github.com/rairulyle/meralco-ph/compare/e5c841beceb9963acf638ca2bbb06d300ba9b9e6...76aa0f2da563d8a6b8e162297583305fad153a93
-[1.1.0]: https://github.com/rairulyle/meralco-ph/compare/509d4782be32d639f2fa711437c36117941121fb...e5c841beceb9963acf638ca2bbb06d300ba9b9e6
-[1.0.0]: https://github.com/rairulyle/meralco-ph/compare/509d4782be32d639f2fa711437c36117941121fb...e5c841beceb9963acf638ca2bbb06d300ba9b9e6
+[2.0.4]: https://github.com/rairulyle/meralco-ph/compare/v2.0.3...v2.0.4
+[2.0.3]: https://github.com/rairulyle/meralco-ph/compare/v2.0.2...v2.0.3
+[2.0.2]: https://github.com/rairulyle/meralco-ph/compare/v2.0.1...v2.0.2
+[2.0.1]: https://github.com/rairulyle/meralco-ph/compare/v2.0.0...v2.0.1
+[2.0.0]: https://github.com/rairulyle/meralco-ph/compare/v1.1.2...v2.0.0
+[1.1.2]: https://github.com/rairulyle/meralco-ph/compare/v1.1.1...v1.1.2
+[1.1.1]: https://github.com/rairulyle/meralco-ph/compare/v1.1.0...v1.1.1
+[1.1.0]: https://github.com/rairulyle/meralco-ph/compare/v1.0.0...v1.1.0
+[1.0.0]: https://github.com/rairulyle/meralco-ph/releases/tag/v1.0.0

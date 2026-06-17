@@ -34,7 +34,7 @@ For AI agents (Cursor, Copilot, etc.) working in this repo.
   - `src/api.py` — derives its version from `__version__` at runtime, so it never needs a manual edit.
   - The release git tag (`vX.Y.Z`) must match too.
   Bump with `pipenv run bump patch` (or `minor` / `major` / explicit `1.x.x`) — the script updates `src/__init__.py` and `config.yaml` together. Then update `CHANGELOG.md` by hand and run `python3 scripts/check_versions.py` to confirm everything agrees. CI (`docker-publish.yml`) runs the same check and refuses to publish on any mismatch.
-- **Changelog**: Updated by hand when releasing; bump script reminds you.
+- **Changelog**: Updated by hand when releasing; bump script reminds you. Every release needs **two** edits: (1) the `## [x.y.z] - YYYY-MM-DD` section with the notes, and (2) a matching link-reference footnote at the bottom of the file. The footnote compares the previous tag to the new one: `[x.y.z]: https://github.com/rairulyle/meralco-ph/compare/vA.B.C...vX.Y.Z`. Keep one footnote per version heading — it is easy to add the section and forget the footnote (2.0.1–2.0.4 were missed). The newest version's footnote should point at the release tag, not `HEAD`.
 - **PDF URL pattern**: `https://meralcomain.s3.ap-southeast-1.amazonaws.com/{YYYY-MM}/{MM-YYYY}_residential_bills.pdf`. If MERALCO changes this pattern, update `get_pdf_url()` in `src/parser.py`.
 - **Valid consumption levels**: `50, 70, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 3000, 5000` (`typical` aliases `200`). This list is defined in `src/api.py` as `VALID_KWH_LEVELS`.
 
