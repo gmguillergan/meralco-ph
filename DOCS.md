@@ -76,6 +76,13 @@ The add-on exposes the same endpoints as the standalone Docker image:
 ## Troubleshooting
 
 - "No MQTT broker available": install the Mosquitto broker add-on (or any MQTT broker that registers with Supervisor) and restart this add-on.
+- "Failed to save: Invalid list for option 'kwh_levels'": when editing the config in YAML mode, `kwh_levels` must be a YAML list, not a bare number. Write `kwh_levels: [3000]` or:
+
+  ```yaml
+  kwh_levels:
+    - 3000
+  ```
+
 - "kwh_levels is empty after validation": at least one entry in `kwh_levels` must be a valid consumption level. Check the table above.
 - Sensors don't appear: verify the add-on log shows "Connected to MQTT broker", then check Settings, Devices and Services, MQTT for the MERALCO Electricity Rates device.
 
